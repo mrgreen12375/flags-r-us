@@ -43,6 +43,8 @@ function getCountryInfo() {
 }
 
 function displayCountry(display) {
+    
+    searchInput.value = "";
 
     var countryObject = {
         name: display[0].name.official,
@@ -55,8 +57,6 @@ function displayCountry(display) {
 
     var card = document.querySelector('#card');
     card.setAttribute('style', `border: 3px solid black; background-image: url(${countryObject.flag}); background-size: cover`);
-
-    searchInput.value = "";
 
     var cardEl = document.createElement('div');
     cardEl.setAttribute('class', 'center');
