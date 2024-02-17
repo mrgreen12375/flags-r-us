@@ -44,38 +44,34 @@ function getCountryInfo() {
 
 function displayCountry(display) {
 
-    var card = document.querySelector('#card');
-    card.setAttribute('style', `border: 3px solid black; background-image: url(${display[0].flags.svg}); background-size: cover`);
+    var countryObject = {
+        name: display[0].name.official,
+        capitial: display[0].capital,
+        continent: display[0].continents,
+        langauge: Object.values(display[0].languages)[0],
+        population: display[0].population.toLocaleString(),
+        flag: display[0].flags.svg
+    }
 
-    var flag = display[0].flags.svg;
+    var card = document.querySelector('#card');
+    card.setAttribute('style', `border: 3px solid black; background-image: url(${countryObject.flag}); background-size: cover`);
 
     searchInput.value = "";
 
-    var nameEl = document.createElement('h2');
-    nameEl.textContent = display[0].name.official;
+    var cardEl = document.createElement('div');
+    cardEl.setAttribute('class', 'center');
+    cardEl.innerHTML = `<h2>${countryObject.name}</h2>
+                        <h3>Capitial: ${countryObject.capitial}</h3>
+                        <h3>Continent: ${countryObject.continent}</h3>
+                        <h3>Langauge: ${countryObject.langauge}</h3>
+                        <h3>Population: ${countryObject.population}</h3>`;
 
-    var capitialEl = document.createElement('h3');
-    capitialEl.textContent = "Capital: " + display[0].capital;
+    card.appendChild(cardEl);
 
-    var continentEL = document.createElement('h3');
-    continentEL.textContent = "Continent: " + display[0].continents;
-
-    var langaugeEl = document.createElement('h3');
-    langaugeEl.textContent = "langauge: " + Object.values(display[0].languages)[0];
-
-    var populationtEL = document.createElement('h3');
-    populationtEL.textContent = "Population: " + display[0].population.toLocaleString();
-
-    card.appendChild(nameEl);
-    card.appendChild(capitialEl);
-    card.appendChild(continentEL);
-    card.appendChild(langaugeEl);
-    card.appendChild(populationtEL);
-
-    saveButton(nameEl, capitialEl, continentEL, langaugeEl, populationtEL, flag)
+    saveButton(countryObject)
 }
 
-function saveButton(nameEl, capitialEl, continentEL, langaugeEl, populationtEL, flag) {
+function saveButton(countryObject) {
     
     var form = document.querySelector("#form");
 
@@ -88,22 +84,13 @@ function saveButton(nameEl, capitialEl, continentEL, langaugeEl, populationtEL, 
     save.addEventListener('click', function(event){
         event.preventDefault();
 
-        var savedObject = {
-            name: nameEl.textContent,
-            capitial: capitialEl.textContent,
-            continent: continentEL.textContent,
-            langauge: langaugeEl.textContent,
-            population: populationtEL.textContent,
-            flag: flag
-        }
-
         var savedCountries = JSON.parse(localStorage.getItem("savedCountries"))
         if (savedCountries !== null) {
             saved = savedCountries;
         }
 
-        if(!saved.includes(savedObject)){
-        saved.push(savedObject);
+        if(!saved.includes(countryObject)){
+        saved.push(countryObject);
         window.localStorage.setItem('savedCountries', JSON.stringify(saved));
         save.setAttribute('style', 'display: none;');
         }

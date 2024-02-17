@@ -16,10 +16,10 @@ function favoritesList() {
             var favoriteEl = document.createElement('div');
             favoriteEl.innerHTML = `<div class='favoriteCard swirl-in-fwd' style='background-image: url(${savedCountries[i].flag});'>
                                     <h3>${savedCountries[i].name}</h3>
-                                    <h4>${savedCountries[i].capitial}</h4>
-                                    <h4>${savedCountries[i].continent}</h4>
-                                    <h4>${savedCountries[i].langauge}</h4>
-                                    <h4>${savedCountries[i].population}</h4>
+                                    <h4>Capitial: ${savedCountries[i].capitial}</h4>
+                                    <h4>Continent: ${savedCountries[i].continent}</h4>
+                                    <h4>Langauge: ${savedCountries[i].langauge}</h4>
+                                    <h4>Population: ${savedCountries[i].population}</h4>
                                     </div>`;
 
             favorites.appendChild(favoriteEl);
