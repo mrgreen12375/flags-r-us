@@ -14,12 +14,12 @@ function favoritesList() {
         for(let i=0; i < savedCountries.length; i++){
                     
             var favoriteEl = document.createElement('div');
-            favoriteEl.innerHTML = `<div class='favoriteCard swirl-in-fwd' style='background-image: url(${savedCountries[i][5]});'>
-                                    <h3>${savedCountries[i][0]}</h3>
-                                    <h4>${savedCountries[i][1]}</h4>
-                                    <h4>${savedCountries[i][2]}</h4>
-                                    <h4>${savedCountries[i][3]}</h4>
-                                    <h4>${savedCountries[i][4]}</h4>
+            favoriteEl.innerHTML = `<div class='favoriteCard swirl-in-fwd' style='background-image: url(${savedCountries[i].flag});'>
+                                    <h3>${savedCountries[i].name}</h3>
+                                    <h4>${savedCountries[i].capitial}</h4>
+                                    <h4>${savedCountries[i].continent}</h4>
+                                    <h4>${savedCountries[i].langauge}</h4>
+                                    <h4>${savedCountries[i].population}</h4>
                                     </div>`;
 
             favorites.appendChild(favoriteEl);

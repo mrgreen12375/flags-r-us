@@ -88,13 +88,22 @@ function saveButton(nameEl, capitialEl, continentEL, langaugeEl, populationtEL, 
     save.addEventListener('click', function(event){
         event.preventDefault();
 
+        var savedObject = {
+            name: nameEl.textContent,
+            capitial: capitialEl.textContent,
+            continent: continentEL.textContent,
+            langauge: langaugeEl.textContent,
+            population: populationtEL.textContent,
+            flag: flag
+        }
+
         var savedCountries = JSON.parse(localStorage.getItem("savedCountries"))
         if (savedCountries !== null) {
             saved = savedCountries;
         }
 
-        if(!saved.includes(nameEl.textContent, capitialEl.textContent, continentEL.textContent, langaugeEl.textContent, populationtEL.textContent)){
-        saved.push([nameEl.textContent, capitialEl.textContent, continentEL.textContent, langaugeEl.textContent, populationtEL.textContent, flag]);
+        if(!saved.includes(savedObject)){
+        saved.push(savedObject);
         window.localStorage.setItem('savedCountries', JSON.stringify(saved));
         save.setAttribute('style', 'display: none;');
         }
