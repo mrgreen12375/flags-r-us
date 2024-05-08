@@ -246,6 +246,58 @@ a:hover {
   cursor: pointer;
 }
 
+@media screen and (max-width: 1200px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        position: static;
+        height: 200px;
+    }
+
+    .link {
+        position: static;
+    }
+
+    .linkBack {
+        position: static;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .landingImg {
+        height: 380px;
+        width: 400px;
+    }
+
+    #card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-size: cover; 
+        background-position: center;
+        height: 200px;
+        width: 400px;
+        font-family: 'Special Elite', system-ui;
+    }
+
+    #card h2 {
+        font-size: 18.72px;
+        margin: 4.5px;
+    }
+
+    #card h3 {
+        font-size: 16px;
+        margin: 5px;
+    }
+
+}
+
 @media screen and (max-width: 500px) {
     header {
         display: flex;
@@ -293,7 +345,7 @@ a:hover {
 
     #card h3 {
         font-size: 16px;
-        margin: 4.5px;
+        margin: 5px;
     }
 
 }
