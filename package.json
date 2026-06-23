@@ -1,0 +1,11 @@
+{
+  "name": "flags-r-us",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "express": "^5.2.1"
+  }
+}
