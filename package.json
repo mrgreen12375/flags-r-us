@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "express": "^5.2.1"
   }
 }
